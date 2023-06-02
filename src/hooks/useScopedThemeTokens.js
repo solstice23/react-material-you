@@ -4,7 +4,6 @@ import { css } from '@emotion/css'
 
 function useScopedThemeTokens() {
 	const themeContext = useContext(ThemeContext);
-	console.log(themeContext);
 	const tokens = themeContext.tokens;
 	return css`
 		${tokens.map(({token, rgb: [r, g, b]}) => {
