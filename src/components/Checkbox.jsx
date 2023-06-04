@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import css from './Checkbox.module.scss';
 import { useEffect, useState } from 'react';
 import { useRipple } from './Ripple.jsx';
-import useScopedThemeTokens from '../hooks/useScopedThemeTokens.js';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 
 
 function Checkbox(props) {
-	const themeClass = useScopedThemeTokens();
+	const themeClass = useScopedThemeClass();
 
 	const [checked, setChecked] = useState((props.checked !== undefined ? props.checked : props.defaultChecked) || false);
 

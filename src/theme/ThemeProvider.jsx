@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState, useRef, useMemo } from 'react';
+import { css } from '@emotion/css'
 import ThemeContext from '../contexts/ThemeContext';
 
 import { argbFromHex, themeFromSourceColor, sourceColorFromImage, applyTheme, QuantizerCelebi, Score } from '@material/material-color-utilities';
@@ -40,8 +41,16 @@ const ThemeProvider = ({
 		applyThemeTokensToElement(tokens, applyToElement);
 	}
 	
+	const scopedThemeClass = useMemo(() => {
+		return css`
+			${tokens.map(({token, rgb: [r, g, b]}) => {
+				return `${token}: rgb(${r}, ${g}, ${b}); ${token}-rgb: ${r}, ${g}, ${b};`;
+			}).join('\n')}
+		`;
+	}, [tokens]);
+	
 	return (
-		<ThemeContext.Provider value={{ themeColor, customColors, mode, theme, tokens }}>
+		<ThemeContext.Provider value={{ themeColor, customColors, mode, theme, tokens, scopedThemeClass }}>
 			{children}
 		</ThemeContext.Provider>
 	)

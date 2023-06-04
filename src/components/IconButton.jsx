@@ -10,6 +10,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
 	return (
 		<div ref={ref} role="button"
 			className={classNames(
+				'iconButton',
 				css.iconButton,
 				props.className,
 				{

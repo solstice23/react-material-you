@@ -1,0 +1,21 @@
+:root {
+	font-family: Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+
+	color-scheme: light dark;
+	color: var(--md-sys-color-on-background);
+	background-color: var(--md-sys-color-background);
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+* {
+}

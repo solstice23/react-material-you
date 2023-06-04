@@ -1,3 +1,5 @@
+@import './global/elevation.scss';
+
 .card {
 	border-radius: 12px;
 	overflow: hidden;
@@ -19,19 +21,51 @@
 	&.noLayer::before {
 		display: none;
 	}
+	&.elevated {
+		background-color: var(--md-sys-color-surface-container-low);
+		color: var(--md-sys-color-on-surface-variant);
+		@include elevation(1);
+		&:hover {
+			@include elevation(2);
+			&::before {
+				opacity: 0.08;
+			}
+		}
+		&:active {
+			@include elevation(1);
+			&::before {
+				opacity: 0.12;
+			}
+		}
+	}
 	&.filled {
 		background-color: var(--md-sys-color-surface-container-highest);
 		color: var(--md-sys-color-on-surface-variant);
 		&:hover {
+			@include elevation(1);
 			&::before {
 				opacity: 0.08;
 			}
-			&:not(:active) {
-				//box-shadow: 0 1px 2px 1px rgba(var(--md-sys-color-shadow-rgb), 0.1), 0 3px 8px 3px rgba(var(--md-sys-color-shadow-rgb), 0.05);
-				//level2 shadow, should be revised to level1
+		}
+		&:active {
+			@include elevation(0);
+			&::before {
+				opacity: 0.12;
+			}
+		}
+	}
+	&.outlined {
+		background-color: var(--md-sys-color-surface);
+		color: var(--md-sys-color-on-surface-variant);
+		border: 1px solid var(--md-sys-color-outline);
+		&:hover {
+			@include elevation(1);
+			&::before {
+				opacity: 0.08;
 			}
 		}
 		&:active {
+			@include elevation(0);
 			&::before {
 				opacity: 0.12;
 			}

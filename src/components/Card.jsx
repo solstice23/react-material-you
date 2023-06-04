@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import { useRipple } from './Ripple.jsx';
 import css from './Card.module.scss';
-import useScopedThemeTokens from '../hooks/useScopedThemeTokens.js';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 
 function Card(props) {
 	const container = useRipple();
-	const themeClass = useScopedThemeTokens();
+	const themeClass = useScopedThemeClass();
 
 	return (
 		<div ref={container}
