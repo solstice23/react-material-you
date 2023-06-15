@@ -23,7 +23,10 @@ function Checkbox(props) {
 		<div className={classNames(
 			css.checkbox,
 			themeClass,
-			props.className
+			props.className,
+			{
+				[css.disabled]: props.disabled,
+			}
 		)}>
 			<div
 				className={classNames(

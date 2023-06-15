@@ -35,8 +35,13 @@
 		&::before {
 			background-color: var(--md-sys-color-on-surface-variant);
 		}
+		--ripple-color: var(--md-sys-color-on-surface-variant);
 		&.selected {
 			color: var(--md-sys-color-primary);
+		}
+		&.disabled {
+			color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+			background-color: transparent;
 		}
 	}
 
@@ -46,12 +51,18 @@
 		&::before {
 			background-color: var(--md-sys-color-on-surface-variant);
 		}
+		--ripple-color: var(--md-sys-color-on-surface-variant);
 		&.selected {
 			color: var(--md-sys-color-inverse-on-surface);
 			background-color: var(--md-sys-color-inverse-surface);
 			&::before {
 				background-color: var(--md-sys-color-inverse-on-surface);
 			}
+			--ripple-color: var(--md-sys-color-inverse-on-surface);
+		}
+		&.disabled {
+			color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+			border-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
 		}
 	}
 
@@ -62,6 +73,7 @@
 		&::before {
 			background-color: var(--md-sys-color-on-primary);
 		}
+		--ripple-color: var(--md-sys-color-on-primary);
 		&.toggle {
 			&:not(.selected) {
 				color: var(--md-sys-color-primary);
@@ -69,6 +81,7 @@
 				&::before {
 					background-color: var(--md-sys-color-primary);
 				}
+				--ripple-color: var(--md-sys-color-primary);
 			}
 			&.selected {
 				color: var(--md-sys-color-on-primary);
@@ -76,7 +89,12 @@
 				&::before {
 					background-color: var(--md-sys-color-on-primary);
 				}
+				--ripple-color: var(--md-sys-color-on-primary);
 			}
+		}
+		&.disabled {
+			color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+			background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
 		}
 	}
 
@@ -87,6 +105,7 @@
 		&::before {
 			background-color: var(--md-sys-color-on-secondary-container);
 		}
+		--ripple-color: var(--md-sys-color-on-secondary-container);
 		&.toggle {
 			&:not(.selected) {
 				color: var(--md-sys-color-on-surface-variant);
@@ -94,6 +113,7 @@
 				&::before {
 					background-color: var(--md-sys-color-on-surface-variant);
 				}
+				--ripple-color: var(--md-sys-color-on-surface-variant);
 			}
 			&.selected {
 				color: var(--md-sys-color-on-secondary-container);
@@ -101,7 +121,16 @@
 				&::before {
 					background-color: var(--md-sys-color-on-secondary-container);
 				}
+				--ripple-color: var(--md-sys-color-on-secondary-container);
 			}
 		}
+		&.disabled {
+			color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
+			background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
+		}
+	}
+
+	&.disabled {
+		pointer-events: none;
 	}
 }

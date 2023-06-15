@@ -1,3 +1,5 @@
+@import './global/elevation.scss';
+
 .FAB {
 	display: flex;
 	align-items: center;
@@ -9,6 +11,7 @@
 	outline: none !important;
 	position: relative;
 	padding: 0;
+	transition: box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 
 	&::before {
 		content: '';
@@ -51,6 +54,7 @@
 		&::before {
 			background-color: var(--md-sys-color-on-primary-container);
 		}
+		--ripple-color: var(--md-sys-color-on-primary-container);
 	}
 	&.colorSurface, &.colorSurfaceLowered {
 		background-color: var(--md-sys-color-surface-container-high);
@@ -58,6 +62,7 @@
 		&::before {
 			background-color: var(--md-sys-color-primary);
 		}
+		--ripple-color: var(--md-sys-color-primary);
 		&.colorSurfaceLowered {
 			background-color: var(--md-sys-color-surface-container-low);
 		}
@@ -68,12 +73,33 @@
 		&::before {
 			background-color: var(--md-sys-color-on-secondary-container);
 		}
+		--ripple-color: var(--md-sys-color-on-secondary-container);
 	}
 	&.colorTertiary {
 		background-color: var(--md-sys-color-tertiary-container);
 		color: var(--md-sys-color-on-tertiary-container);
 		&::before {
 			background-color: var(--md-sys-color-on-tertiary-container);
+		}
+		--ripple-color: var(--md-sys-color-on-tertiary-container);
+	}
+
+	&.elevationDefault {
+		@include elevation(3);
+		&:hover {
+			@include elevation(4);
+		}
+		&:active {
+			@include elevation(3);
+		}
+	}
+	&.elevationLowered {
+		@include elevation(1);
+		&:hover {
+			@include elevation(2);
+		}
+		&:active {
+			@include elevation(1);
 		}
 	}
 

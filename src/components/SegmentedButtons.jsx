@@ -25,7 +25,8 @@ const SegmentedButtons = forwardRef(
 				default:
 					return state;
 			}
-		}, props.buttons.filter((button) => button.selected).map((button) => button.value));
+		}, props.buttons.filter((button) => button.selected || button.defaultSelected).map((button) => button.value));
+
 
 		useEffect(() => {
 			if (props.setSelected) {
@@ -47,7 +48,7 @@ const SegmentedButtons = forwardRef(
 						label={button.label}
 						value={button.value}
 						icon={button.icon}
-						selected={(button.selected !== 'undefined') ? button.selected : selected.includes(button.value)}
+						selected={(button.selected !== undefined) ? button.selected : selected.includes(button.value)}
 						dispatchSelected={dispatchSelected}
 					/>
 				))}

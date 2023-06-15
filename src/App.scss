@@ -1,0 +1,48 @@
+#root {
+	width: 100%;
+}
+.content {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.section {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	.section-name {
+		font-size: 28px;
+		margin-bottom: 16px;
+	}
+}
+
+.card-section {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 8px;
+	.demo-card {
+		padding: 16px;
+		max-width: 600px;
+		flex-shrink: 0;
+		.card-title {
+			font-size: 32px;
+		}
+		.card-subtitle {
+			font-size: 20px;
+			opacity: 0.85;
+		}
+		.card-content {
+			padding-top: 12px;
+		}
+	}
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	align-items: center;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}

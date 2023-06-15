@@ -77,4 +77,18 @@
 		cursor: pointer;
 		user-select: none;
 	}
+
+	&.disabled {
+		pointer-events: none;
+		.checkmarkContainer {
+			.checkmark {
+				border-color: var(--md-sys-color-on-surface);
+				opacity: 0.38;
+				&.checked {
+					border-color: transparent;
+					background-color: var(--md-sys-color-on-surface);
+				}
+			}
+		}
+	}
 }

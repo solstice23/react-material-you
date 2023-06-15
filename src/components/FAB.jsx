@@ -24,6 +24,11 @@ const FAB = forwardRef(function FAB(props, ref) {
 					[css.colorSecondary]: (props.color ?? 'primary') === 'secondary',
 					[css.colorTertiary]: (props.color ?? 'primary') === 'tertiary',
 				},
+				{
+					[css.elevationDefault]: (props.elevation ?? 'default') === 'default',
+					[css.elevationLowered]: (props.elevation ?? 'default') === 'lowered',
+					[css.elevationNone]: (props.elevation ?? 'default') === 'none',
+				}
 			)}
 			title={props.title}
 			onClick={props.onClick}

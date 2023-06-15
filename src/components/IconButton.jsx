@@ -22,6 +22,9 @@ const IconButton = forwardRef(function IconButton(props, ref) {
 				{
 					[css.toggle]: props.selected !== undefined || props.toggle,
 					[css.selected]: props.selected
+				},
+				{
+					[css.disabled]: props.disabled
 				}
 			)}
 			title={props.title}
