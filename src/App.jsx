@@ -31,7 +31,7 @@ function App() {
 							<IconButton><MdAttachFile/></IconButton>
 						</>
 					}
-					type="large"
+					type="medium"
 				>
 					Top App Bar
 				</TopAppBar>
