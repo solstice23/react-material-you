@@ -1,6 +1,6 @@
 @import './global/elevation.scss';
 
-.progressBar {
+.slider {
 	height: 40px;
 	position: relative;
 	user-select: none;
@@ -15,7 +15,7 @@
 		.played {
 			position: absolute;
 			left: 0;
-			right: calc(100% - var(--progress));
+			right: calc(100% - var(--percent));
 			top: -3px;
 			bottom: -3px;
 			overflow: hidden;
@@ -23,7 +23,7 @@
 		}
 		.unplayed {
 			position: absolute;
-			left: var(--progress);
+			left: var(--percent);
 			height: 100%;
 			right: 0;
 			border-radius: 0 100px 100px 0;
@@ -44,7 +44,7 @@
 		right: 20px;
 		top: 0;
 		bottom: 0;
-		transform: translateX(calc(var(--progress) - 20px));
+		transform: translateX(calc(var(--percent) - 20px));
 		pointer-events: none;
 		z-index: 2;
 		.handle {
@@ -111,7 +111,7 @@
 .paused .sinWave {
 	//animation-play-state: paused;
 }
-.progressBarNonWavePlayedInner {
+.sliderNonWavePlayedInner {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -120,7 +120,7 @@
 	overflow: hidden;
 	background-color: var(--md-sys-color-primary);
 }
-.progressBar.disabled {
+.slider.disabled {
 	pointer-events: none !important;
 	* {
 		pointer-events: none !important;
@@ -128,7 +128,7 @@
 	.track {
 		.played {
 			opacity: 0.38;
-			.progressBarNonWavePlayedInner {
+			.sliderNonWavePlayedInner {
 				background-color: var(--md-sys-color-on-surface);
 			}
 		}

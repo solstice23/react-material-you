@@ -1,25 +1,24 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import css from './ProgressBar.module.scss';
+import css from './Slider.module.scss';
 import useScopedThemeClass from "../hooks/useScopedThemeClass.js";
 
-const ProgressBar = forwardRef(function ProgressBar(props, ref){
+const Slider = forwardRef(function Slider(props, ref){
 	if (ref == null) ref = useRef(null);
-
 	
 	const themeClass = useScopedThemeClass();
 
-	const [progress, setProgress] = useState(props.defaultProgress ?? 0);
+	const [percent, setPercent] = useState(props.defaultPercent ?? 0);
 
 	const isDragging = useRef(false);
 	const handleRef = useRef(null);
 	const controlTrackRef = useRef(null);
 
-	let currentProgress = /*isDragging.current ? 
-		progress:*/
-		(props.progress !== undefined ? props.progress : progress);
+	let currentPercent = /*isDragging.current ? 
+		percent:*/
+		(props.percent !== undefined ? props.percent : percent);
 
-	if (currentProgress !== currentProgress) currentProgress = 0;
+	if (currentPercent !== currentPercent) currentPercent = 0;
 
 
 	const getPercentByEvent = (e) => {
@@ -36,15 +35,15 @@ const ProgressBar = forwardRef(function ProgressBar(props, ref){
 		window.addEventListener('mouseup', handleMouseUp);
 		window.addEventListener('touchmove', handleMouseMove);
 		window.addEventListener('touchend', handleMouseUp);
-		const newProgress = getPercentByEvent(e);
-		setProgress(newProgress);
-		props.onInput?.(newProgress);
+		const newPercent = getPercentByEvent(e);
+		setPercent(newPercent);
+		props.onInput?.(newPercent);
 	}
 	const handleMouseMove = (e) => {
 		if (isDragging.current) {
-			const newProgress = getPercentByEvent(e);
-			setProgress(newProgress);
-			props.onInput?.(newProgress);
+			const newPercent = getPercentByEvent(e);
+			setPercent(newPercent);
+			props.onInput?.(newPercent);
 		}
 	}
 	const handleMouseUp = (e) => {
@@ -53,10 +52,10 @@ const ProgressBar = forwardRef(function ProgressBar(props, ref){
 		window.removeEventListener('mouseup', handleMouseUp);
 		window.removeEventListener('touchmove', handleMouseMove);
 		window.removeEventListener('touchend', handleMouseUp);
-		const newProgress = getPercentByEvent(e);
-		setProgress(newProgress);
-		props.onInput?.(newProgress);
-		props.onChange?.(newProgress);
+		const newPercent = getPercentByEvent(e);
+		setPercent(newPercent);
+		props.onInput?.(newPercent);
+		props.onChange?.(newPercent);
 	}
 	const controlTrackMouseDown = (e) => {
 		isDragging.current = true;
@@ -64,9 +63,9 @@ const ProgressBar = forwardRef(function ProgressBar(props, ref){
 		window.addEventListener('mouseup', handleMouseUp);
 		window.addEventListener('touchmove', handleMouseMove);
 		window.addEventListener('touchend', handleMouseUp);
-		const newProgress = getPercentByEvent(e);
-		setProgress(newProgress);
-		props.onChange?.(newProgress);
+		const newPercent = getPercentByEvent(e);
+		setPercent(newPercent);
+		props.onChange?.(newPercent);
 	}
 
 	useEffect(() => {
@@ -86,7 +85,7 @@ const ProgressBar = forwardRef(function ProgressBar(props, ref){
 		<div
 			ref={ref}
 			className={classNames(
-				css.progressBar,
+				css.slider,
 				themeClass,
 				props.className,
 				{
@@ -96,26 +95,26 @@ const ProgressBar = forwardRef(function ProgressBar(props, ref){
 				}
 			)}
 			style={{
-				'--progress': `${currentProgress ?? 0}%`,
+				'--percent': `${currentPercent ?? 0}%`,
 				...props.style,
 			}}
 		>
-			<div className={classNames('progress-bar-track', css.track)}>
-				<div className={classNames('progress-bar-played', css.played)}>
+			<div className={classNames('slider-track', css.track)}>
+				<div className={classNames('slider-played', css.played)}>
 					{
 						props.wave &&
 						<SinWave paused={props.paused} disabled={props.disabled}/>
 					}
 					{
 						!props.wave &&
-						<div className={classNames('progress-bar-non-wave-played-inner', css.progressBarNonWavePlayedInner)}></div>
+						<div className={classNames('slider-non-wave-played-inner', css.sliderNonWavePlayedInner)}></div>
 					}
 				</div>
-				<div className={classNames('progress-bar-unplayed', css.unplayed)}></div>
-				<div className={classNames('progress-bar-control', css.control)} ref={controlTrackRef}></div>
+				<div className={classNames('slider-unplayed', css.unplayed)}></div>
+				<div className={classNames('slider-control', css.control)} ref={controlTrackRef}></div>
 			</div>
-			<div className={classNames('progress-bar-handleContainer', css.handleContainer)}>
-				<div className={classNames('progress-bar-handle', css.handle)} ref={handleRef}></div>
+			<div className={classNames('slider-handleContainer', css.handleContainer)}>
+				<div className={classNames('slider-handle', css.handle)} ref={handleRef}></div>
 			</div>
 		</div>
 	)
@@ -187,4 +186,4 @@ function SinWave(props) {
 	)
 }
 
-export default ProgressBar;
+export default Slider;
