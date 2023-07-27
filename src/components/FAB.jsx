@@ -2,8 +2,11 @@ import classNames from 'classnames';
 import { useRipple } from './Ripple.jsx';
 import css from './FAB.module.scss';
 import { forwardRef, useRef } from 'react';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 
 const FAB = forwardRef(function FAB(props, ref) {
+	const themeClass = useScopedThemeClass();
+
 	if (!ref) ref = useRef(null);
 	useRipple(ref);
 
@@ -11,6 +14,7 @@ const FAB = forwardRef(function FAB(props, ref) {
 		<button ref={ref}
 			className={classNames(
 				css.FAB,
+				themeClass,
 				props.className,
 				{
 					[css.sizeNormal]: (props.size ?? 'normal') === 'normal',

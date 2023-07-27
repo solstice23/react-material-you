@@ -3,8 +3,10 @@ import Checkbox from './Checkbox.jsx';
 import css from './MenuItem.module.scss';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { useRipple } from './Ripple.jsx';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 
 const MenuItem = forwardRef(function MenuItem(props, ref) {
+	const themeClass = useScopedThemeClass();
 	if (!ref) ref = useRef();
 
 	useRipple(ref);
@@ -27,6 +29,7 @@ const MenuItem = forwardRef(function MenuItem(props, ref) {
 			ref={ref} 
 			className={classNames(
 				css.menuItem,
+				themeClass,
 				props.className
 			)}
 			onClick={onClick}

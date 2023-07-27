@@ -2,8 +2,12 @@ import classNames from 'classnames';
 import { useRipple } from './Ripple.jsx';
 import css from './IconButton.module.scss';
 import { forwardRef, useRef } from 'react';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
+
 
 const IconButton = forwardRef(function IconButton(props, ref) {
+	const themeClass = useScopedThemeClass();
+
 	if (!ref) ref = useRef(null);
 	useRipple(ref);
 
@@ -12,6 +16,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
 			className={classNames(
 				'iconButton',
 				css.iconButton,
+				themeClass,
 				props.className,
 				{
 					[css.standard]: (props.type ?? 'standard') === 'standard',

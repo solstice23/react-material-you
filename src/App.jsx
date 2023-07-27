@@ -8,13 +8,14 @@ import IconButton from './components/IconButton.jsx'
 import FAB from './components/FAB.jsx';
 import Button from './components/Button.jsx';
 import SegmentedButtons from './components/SegmentedButtons.jsx';
+import ProgressBar from './components/ProgressBar.jsx';
 import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory } from 'react-icons/md';
 import classNames from 'classnames';
 
 import ThemeProvider from './theme/ThemeProvider.jsx';
 
 function App() {
-	const [count, setCount] = useState(0)
+	const [wavePaused, setWavePaused] = useState(false);
 
 	return (
 		<>
@@ -150,7 +151,15 @@ function App() {
 								onChange={(value) => console.log(value)}
 							/>
 						</div>
-
+					</Section>
+					<Section name="Progress Bar">
+						Normal
+						<ProgressBar defaultProgress={40}/>
+						<ProgressBar defaultProgress={60} disabled/>
+						Wave
+						<ProgressBar defaultProgress={40} wave paused={wavePaused}/>
+						<ProgressBar defaultProgress={60} wave paused={wavePaused} disabled/>
+						<Checkbox label="Pause wave" defaultChecked={false} onChange={setWavePaused}/>
 					</Section>
 				</div>
 			</ThemeProvider>

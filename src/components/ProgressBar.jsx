@@ -1,9 +1,13 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import css from './WaveProgressBar.module.scss';
+import css from './ProgressBar.module.scss';
+import useScopedThemeClass from "../hooks/useScopedThemeClass.js";
 
-const WaveProgressBar = forwardRef(function WaveProgressBar(props, ref){
+const ProgressBar = forwardRef(function ProgressBar(props, ref){
 	if (ref == null) ref = useRef(null);
+
+	
+	const themeClass = useScopedThemeClass();
 
 	const [progress, setProgress] = useState(props.defaultProgress ?? 0);
 
@@ -11,11 +15,12 @@ const WaveProgressBar = forwardRef(function WaveProgressBar(props, ref){
 	const handleRef = useRef(null);
 	const controlTrackRef = useRef(null);
 
-	let currentProgress = isDragging.current ? 
-		progress:
-		props.progress !== undefined ? props.progress : progress;
+	let currentProgress = /*isDragging.current ? 
+		progress:*/
+		(props.progress !== undefined ? props.progress : progress);
 
 	if (currentProgress !== currentProgress) currentProgress = 0;
+
 
 	const getPercentByEvent = (e) => {
 		const clientX = e.clientX ?? e?.touches[0]?.clientX ?? e.changedTouches[0]?.clientX;
@@ -77,14 +82,15 @@ const WaveProgressBar = forwardRef(function WaveProgressBar(props, ref){
 			controlTrackRef.current.removeEventListener('touchstart', controlTrackMouseDown);
 		}
 	}, []);
-
 	return (
 		<div
 			ref={ref}
 			className={classNames(
-				css.waveProgressBar,
+				css.progressBar,
+				themeClass,
 				props.className,
 				{
+					[css.wave]: props.wave,
 					[css.paused]: props.paused,
 					[css.disabled]: props.disabled,
 				}
@@ -94,15 +100,22 @@ const WaveProgressBar = forwardRef(function WaveProgressBar(props, ref){
 				...props.style,
 			}}
 		>
-			<div className={classNames('wave-progress-bar-track', css.track)}>
-				<div className={classNames('wave-progress-bar-played', css.played)}>
-					<SinWave paused={props.paused} disabled={props.disabled}/>
+			<div className={classNames('progress-bar-track', css.track)}>
+				<div className={classNames('progress-bar-played', css.played)}>
+					{
+						props.wave &&
+						<SinWave paused={props.paused} disabled={props.disabled}/>
+					}
+					{
+						!props.wave &&
+						<div className={classNames('progress-bar-non-wave-played-inner', css.progressBarNonWavePlayedInner)}></div>
+					}
 				</div>
-				<div className={classNames('wave-progress-bar-unplayed', css.unplayed)}></div>
-				<div className={classNames('wave-progress-bar-control', css.control)} ref={controlTrackRef}></div>
+				<div className={classNames('progress-bar-unplayed', css.unplayed)}></div>
+				<div className={classNames('progress-bar-control', css.control)} ref={controlTrackRef}></div>
 			</div>
-			<div className={classNames('wave-progress-bar-handleContainer', css.handleContainer)}>
-				<div className={classNames('wave-progress-bar-handle', css.handle)} ref={handleRef}></div>
+			<div className={classNames('progress-bar-handleContainer', css.handleContainer)}>
+				<div className={classNames('progress-bar-handle', css.handle)} ref={handleRef}></div>
 			</div>
 		</div>
 	)
@@ -174,4 +187,4 @@ function SinWave(props) {
 	)
 }
 
-export default WaveProgressBar;
+export default ProgressBar;

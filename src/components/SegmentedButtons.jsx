@@ -4,9 +4,11 @@ import Icon from './Icon.jsx';
 import css from './SegmentedButtons.module.scss';
 import classNames from 'classnames';
 import { MdCheck } from 'react-icons/md';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 
 const SegmentedButtons = forwardRef(
 	function SegmentedButtons(props, ref) {
+	const themeClass = useScopedThemeClass();
 		const [selected, dispatchSelected] = useReducer((state, action) => {
 			switch (action.type) {
 				case 'select':
@@ -38,7 +40,11 @@ const SegmentedButtons = forwardRef(
 		return (
 			<div
 				className={
-					classNames(css.segmentedButtons, props.className)
+					classNames(
+						css.segmentedButtons, 
+						themeClass,
+						props.className
+					)
 				}
 				ref={ref}
 			>

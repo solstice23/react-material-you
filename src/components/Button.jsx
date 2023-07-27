@@ -2,8 +2,11 @@ import classNames from 'classnames';
 import { useRipple } from './Ripple.jsx';
 import css from './Button.module.scss';
 import { forwardRef, useRef } from 'react';
+import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 
 const Button = forwardRef(function Button(props, ref) {
+	const themeClass = useScopedThemeClass();
+
 	if (!ref) ref = useRef(null);
 	useRipple(ref);
 
@@ -12,6 +15,7 @@ const Button = forwardRef(function Button(props, ref) {
 			className={classNames(
 				'button',
 				css.Button,
+				themeClass,
 				props.className,
 				{
 					[css.elevated]: (props.type ?? 'elevated') === 'elevated',
