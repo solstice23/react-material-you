@@ -9,6 +9,8 @@ import FAB from './components/FAB.jsx';
 import Button from './components/Button.jsx';
 import SegmentedButtons from './components/SegmentedButtons.jsx';
 import Slider from './components/Slider.jsx';
+import RadioGroup from './components/RadioGroup.jsx';
+import Radio from './components/Radio.jsx';
 import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory } from 'react-icons/md';
 import classNames from 'classnames';
 
@@ -46,6 +48,14 @@ function App() {
 						<Checkbox label="Checked" defaultChecked={true} />
 						<Checkbox label="Unchecked Disabled" defaultChecked={false} disabled />
 						<Checkbox label="Checked Disabled" defaultChecked={true} disabled />
+					</Section>
+					<Section name="Radio">
+						<RadioGroup defaultValue="foo">
+							<Radio label="Foo" value="foo"/>
+							<Radio label="Bar" value="bar"/>
+							<Radio label="Baz" value="baz"/>
+							<Radio label="Qux" value="qux" disabled/>
+						</RadioGroup>
 					</Section>
 					<Section name="Card" className="card-section">
 						<DemoCard type="outlined" title="Outlined" />

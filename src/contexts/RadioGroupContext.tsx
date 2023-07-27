@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const ThemeContext = createContext(null);
+const RadioGroupContext = createContext(null);
 
-export default ThemeContext;
+export default RadioGroupContext;
