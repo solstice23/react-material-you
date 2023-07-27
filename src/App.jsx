@@ -50,11 +50,16 @@ function App() {
 						<Checkbox label="Checked Disabled" defaultChecked={true} disabled />
 					</Section>
 					<Section name="Radio">
+						Group 1
 						<RadioGroup defaultValue="foo">
-							<Radio label="Foo" value="foo"/>
-							<Radio label="Bar" value="bar"/>
-							<Radio label="Baz" value="baz"/>
-							<Radio label="Qux" value="qux" disabled/>
+							<Radio label="Alice" value="alice"/>
+							<Radio label="Bob" value="bob"/>
+							<Radio label="Carol" value="carol"/>
+						</RadioGroup>
+						Group 2 (disabled)
+						<RadioGroup defaultValue="foo">
+							<Radio label="Foo" value="foo" disabled/>
+							<Radio label="Bar" value="bar" disabled/>
 						</RadioGroup>
 					</Section>
 					<Section name="Card" className="card-section">

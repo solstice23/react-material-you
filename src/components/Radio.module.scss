@@ -43,6 +43,9 @@
 			box-sizing: border-box;
 			position: relative;
 			transition: border-color 0.2s ease;
+			&.selected {
+				border: 2px solid var(--md-sys-color-primary);
+			}
 			&::before {
 				content: '';
 				display: block;
@@ -53,20 +56,15 @@
 				left: 50%;
 				transform: translate(-50%, -50%) scale(0.6);
 				border-radius: 1000px;
-				background-color: var(--md-sys-color-primary);
+				background-color: var(--md-sys-color-on-surface-variant);
 				opacity: 0;
-				transition: opacity 0.25s ease, scale 0.25s ease;
-			}
-			&.selected {
-				border: 2px solid var(--md-sys-color-primary);
+				transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
 			}
 			&.selected::before {
 				opacity: 1;
 				transform: translate(-50%, -50%) scale(1);
+				background-color: var(--md-sys-color-primary);
 			}
-		}
-		&::before {
-
 		}
 	}
 	.label {
@@ -85,6 +83,11 @@
 				&.checked {
 					border-color: transparent;
 					background-color: var(--md-sys-color-on-surface);
+				}
+				&:not(.checked) {
+					&::before {
+						background-color: var(--md-sys-color-on-surface);
+					}
 				}
 			}
 		}
