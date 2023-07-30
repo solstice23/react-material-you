@@ -52,7 +52,7 @@ function App() {
 					</Section>
 					<Section name="Radio">
 						Group 1
-						<RadioGroup defaultValue="foo">
+						<RadioGroup defaultValue="alice">
 							<Radio label="Alice" value="alice"/>
 							<Radio label="Bob" value="bob"/>
 							<Radio label="Carol" value="carol"/>
