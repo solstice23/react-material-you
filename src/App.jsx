@@ -3,6 +3,8 @@ import './App.scss'
 import './style/global.scss'
 import Card from './components/Card.jsx';
 import Checkbox from './components/Checkbox.jsx';
+import Radio from './components/Radio.jsx';
+import TextField from './components/TextField.jsx';
 import TopAppBar from './components/TopAppBar.jsx';
 import IconButton from './components/IconButton.jsx'
 import FAB from './components/FAB.jsx';
@@ -10,7 +12,6 @@ import Button from './components/Button.jsx';
 import SegmentedButtons from './components/SegmentedButtons.jsx';
 import Slider from './components/Slider.jsx';
 import RadioGroup from './components/RadioGroup.jsx';
-import Radio from './components/Radio.jsx';
 import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory } from 'react-icons/md';
 import classNames from 'classnames';
 
@@ -61,6 +62,24 @@ function App() {
 							<Radio label="Foo" value="foo" disabled/>
 							<Radio label="Bar" value="bar" disabled/>
 						</RadioGroup>
+					</Section>
+					<Section name="Text Field">
+						Normal<br/>
+						<TextField type="outlined" label="Outlined" />
+						{" "}
+						<TextField type="filled" label="Filled" />
+						<br/>With placeholder<br/>
+						<TextField type="outlined" label="Outlined" placeholder="Placeholder" />
+						{" "}
+						<TextField type="filled" label="Filled" placeholder="Placeholder" />
+						<br/>No label<br/>
+						<TextField type="outlined"/>
+						{" "}
+						<TextField type="filled"/>
+						<br/>No label with placeholder<br/>
+						<TextField type="outlined" placeholder="Placeholder"/>
+						{" "}
+						<TextField type="filled" placeholder="Placeholder"/>
 					</Section>
 					<Section name="Card" className="card-section">
 						<DemoCard type="outlined" title="Outlined" />
