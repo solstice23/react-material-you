@@ -7,6 +7,10 @@
 	overflow: hidden;
 	font-weight: 400;
 
+	.input {
+		letter-spacing: 0.5px;
+	}
+
 	&.filled {
 		.input {
 			display: block;
@@ -279,6 +283,10 @@
 		background-color: rgba(var(--md-sys-color-primary-rgb), 0.25);
 	}
 
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.38;
+	}
 
 	.labelSizeTest {
 		position: absolute;

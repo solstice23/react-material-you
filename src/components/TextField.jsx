@@ -15,7 +15,6 @@ const TextField = forwardRef(function TextField(props, ref) {
 	const label = props.label?.trim() ?? '';
 
 	const placeholder = props.placeholder?.length ? props.placeholder : ' ';
-
 	return (
 		<div
 			className={classNames(
@@ -28,7 +27,8 @@ const TextField = forwardRef(function TextField(props, ref) {
 					[css.filled]: (props.type ?? 'outlined') === 'filled',
 
 					[css.noLabel]: label === '',
-					[css.withLeadingIcon]: props.leadingIcon
+					[css.withLeadingIcon]: props.leadingIcon,
+					[css.disabled]: props.disabled
 				}
 			)}
 		>
@@ -46,6 +46,8 @@ const TextField = forwardRef(function TextField(props, ref) {
 				}}
 				onFocus={props.onFocus}
 				onBlur={props.onBlur}
+				readOnly={props.readOnly}
+				disabled={props.disabled}
 			/>
 			<TextFieldLabel
 				label={label}

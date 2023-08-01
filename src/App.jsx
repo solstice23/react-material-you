@@ -88,6 +88,10 @@ function App() {
 						<TextField type="outlined" placeholder="Placeholder" leadingIcon={<MdSearch/>}/>
 						{" "}
 						<TextField type="filled" placeholder="Placeholder" leadingIcon={<MdSearch/>}/>
+						<br/>Disabled<br/>
+						<TextField type="outlined" label="Outlined" disabled/>
+						{" "}
+						<TextField type="filled" label="Filled" disabled/>
 					</Section>
 					<Section name="Card" className="card-section">
 						<DemoCard type="outlined" title="Outlined" />
