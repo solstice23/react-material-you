@@ -12,7 +12,7 @@ import Button from './components/Button.jsx';
 import SegmentedButtons from './components/SegmentedButtons.jsx';
 import Slider from './components/Slider.jsx';
 import RadioGroup from './components/RadioGroup.jsx';
-import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory } from 'react-icons/md';
+import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch } from 'react-icons/md';
 import classNames from 'classnames';
 
 import ThemeProvider from './theme/ThemeProvider.jsx';
@@ -72,6 +72,10 @@ function App() {
 						<TextField type="outlined" label="Outlined" placeholder="Placeholder" />
 						{" "}
 						<TextField type="filled" label="Filled" placeholder="Placeholder" />
+						<br/>With leading icon<br/>
+						<TextField type="outlined" label="Outlined" placeholder="Placeholder" leadingIcon={<MdSearch/>}/>
+						{" "}
+						<TextField type="filled" label="Filled" placeholder="Placeholder" leadingIcon={<MdSearch/>}/>
 						<br/>No label<br/>
 						<TextField type="outlined"/>
 						{" "}
@@ -80,6 +84,10 @@ function App() {
 						<TextField type="outlined" placeholder="Placeholder"/>
 						{" "}
 						<TextField type="filled" placeholder="Placeholder"/>
+						<br/>No label with leading icon<br/>
+						<TextField type="outlined" placeholder="Placeholder" leadingIcon={<MdSearch/>}/>
+						{" "}
+						<TextField type="filled" placeholder="Placeholder" leadingIcon={<MdSearch/>}/>
 					</Section>
 					<Section name="Card" className="card-section">
 						<DemoCard type="outlined" title="Outlined" />

@@ -3,7 +3,7 @@ import css from './Icon.module.scss';
 
 function Icon(props) {
 	return (
-		<i className={classNames('icon', props.className)}>
+		<i className={classNames('icon', css.icon, props.className)}>
 			{props.children}
 		</i>
 	)

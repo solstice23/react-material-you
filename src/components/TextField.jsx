@@ -28,6 +28,7 @@ const TextField = forwardRef(function TextField(props, ref) {
 					[css.filled]: (props.type ?? 'outlined') === 'filled',
 
 					[css.noLabel]: label === '',
+					[css.withLeadingIcon]: props.leadingIcon
 				}
 			)}
 		>
@@ -49,6 +50,12 @@ const TextField = forwardRef(function TextField(props, ref) {
 			<TextFieldLabel
 				label={label}
 			/>
+			{
+				props.leadingIcon &&
+				<div className={css.leadingIcon}>
+					{props.leadingIcon}
+				</div>
+			}
 		</div>
 	)
 });
