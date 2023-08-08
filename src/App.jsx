@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.scss'
 import './style/global.scss'
 import Card from './components/Card.jsx';
@@ -12,6 +12,8 @@ import Button from './components/Button.jsx';
 import SegmentedButtons from './components/SegmentedButtons.jsx';
 import Slider from './components/Slider.jsx';
 import RadioGroup from './components/RadioGroup.jsx';
+import Menu from './components/Menu.jsx';
+import MenuItem, {MenuDivider} from './components/MenuItem.jsx';
 import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch } from 'react-icons/md';
 import classNames from 'classnames';
 
@@ -162,6 +164,35 @@ function App() {
 							<FAB elevation="none"><MdEdit/></FAB>
 						</div>
 					</Section>
+					<Section name="Menu">
+						<div className="row">
+							<DemoMenu name="Normal Menu">
+								<MenuItem>Item 1</MenuItem>
+								<MenuItem>Item 2</MenuItem>
+								<MenuItem>Item 3</MenuItem>
+							</DemoMenu>
+							<DemoMenu name="Menu with icons and deviders">
+								<MenuItem
+									icon={<MdNotifications/>}
+								>
+									Item 1
+								</MenuItem>
+								<MenuItem
+									icon={<MdAttachFile/>}
+								>
+									Item 2
+								</MenuItem>
+								<MenuItem
+									icon={<MdEdit/>}
+								>
+									Item 3
+								</MenuItem>
+								<MenuDivider/>
+								<MenuItem>Item 4</MenuItem>
+								<MenuItem>Item 5</MenuItem>
+							</DemoMenu>
+						</div>
+					</Section>
 					<Section name="Segmented Buttons">
 						Single Choice
 						<div className="row">
@@ -245,5 +276,44 @@ function DemoCard(props) {
 				lorem ipsum dolor sit amet, consectetur adipiscing elit. sed euismod, nisl quis aliquam ultricies, nunc nisl ultricies nunc, quis aliquam nisl nisl quis aliquam ultricies, nunc nisl ultricies nunc, quis aliquam nisl.
 			</div>
 		</Card>
+	);
+}
+
+function DemoMenu(props) {
+	const menuRef = useRef(null);
+	const openBtnRef = useRef(null);
+
+	const [open, setOpen] = useState(false);
+
+	const handleClickAway = (e) => {
+		if (open && !menuRef.current.contains(e.target) && !openBtnRef.current.contains(e.target)) {
+			setOpen(false);
+		}
+	}
+	useEffect(() => {
+		document.addEventListener('click', handleClickAway);
+		return () => {
+			document.removeEventListener('click', handleClickAway);
+		}
+	}, [open]);
+
+	return (
+		<>
+			<Button
+				ref={openBtnRef}
+				onClick={() => setOpen(!open)}
+			>
+				{ props.name }
+			</Button>
+			<Menu
+				ref={menuRef}
+				className="song-filter-menu"
+				anchorElement={openBtnRef?.current}
+				anchorPosition="center top"
+				open={open}
+			>
+				{ props.children }
+			</Menu>
+		</>
 	);
 }

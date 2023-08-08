@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Popper from './Popper.jsx';
 import css from './Menu.module.scss';
+import './Menu.animations.scss';
 import { forwardRef, useEffect, useRef } from 'react';
 import useScopedThemeClass from '../hooks/useScopedThemeClass.js';
 

@@ -15,4 +15,23 @@
 		opacity: 0;
 		transform: scale(0.9);
 	}
+
+	&:not(.hide) {
+		:global{
+			:is(.menu-item, .menu-divider) {
+				animation-name: menu-unfold;
+				animation-duration: 0.25s;
+				animation-timing-function: cubic-bezier(0.45, 0, 0.07, 1);
+				animation-fill-mode: both;
+				@for $i from 1 through 20 {
+					&:nth-of-type(#{$i}) {
+						animation-delay: 0.01s * $i;
+					}
+				}
+				&:nth-of-type(n + 21) {
+					animation-delay: 0.2s;
+				}
+			}
+		}
+	}
 }
