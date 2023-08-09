@@ -24,7 +24,8 @@ const Menu = forwardRef(function Menu(props, ref) {
 					themeClass,
 					props.className,
 					{
-						[css.hide]: !(props.open ?? true)
+						[css.hide]: !(props.open ?? true),
+						[css.animation]: props.animation ?? true,
 					}
 				)}
 				onClick={e => {

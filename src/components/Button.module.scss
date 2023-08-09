@@ -7,6 +7,7 @@
 	border-radius: 20px;
 	font-size: 14px;
 	font-weight: 500;
+	font-family: inherit;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -17,6 +18,8 @@
 	user-select: none;
 	transition: box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
 	.icon {
 		font-size: 18px;
 		width: 18px;
@@ -43,6 +46,9 @@
 	&:active::before {
 		opacity: 0.12;
 	}
+	&:focus-visible::before {
+		opacity: 0.12;
+	}
 
 
 	&.elevated {
@@ -58,6 +64,9 @@
 			@include elevation(2);
 		}
 		&:active {
+			@include elevation(1);
+		}
+		&:focus-visible {
 			@include elevation(1);
 		}
 		&.disabled {
@@ -80,6 +89,9 @@
 		&:active {
 			@include elevation(0);
 		}
+		&:focus-visible {
+			@include elevation(0);
+		}
 		&.disabled {
 			background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.12);
 			color: rgba(var(--md-sys-color-on-surface-rgb), 0.38);
@@ -99,6 +111,9 @@
 			@include elevation(1);
 		}
 		&:active {
+			@include elevation(0);
+		}
+		&:focus-visible {
 			@include elevation(0);
 		}
 		&.disabled {

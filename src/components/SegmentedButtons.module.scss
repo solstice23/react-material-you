@@ -44,9 +44,9 @@
 		&:hover::before {
 			opacity: 0.08;
 		}
-		/*&:focus::before {
+		&:focus-visible::before {
 			opacity: 0.12;
-		}*/
+		}
 		&:active::before {
 			opacity: 0.12;
 		}

@@ -12,7 +12,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
 	useRipple(ref);
 
 	return (
-		<div ref={ref} role="button"
+		<button ref={ref} role="button" tabIndex={props.disabled ? -1 : (props.tabIndex ?? 0)}
 			className={classNames(
 				'iconButton',
 				css.iconButton,
@@ -36,7 +36,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
 			onClick={props.onClick}
 		>
 			{props.children}
-		</div>
+		</button>
 	)
 });
 

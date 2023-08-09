@@ -171,7 +171,7 @@ function App() {
 								<MenuItem>Item 2</MenuItem>
 								<MenuItem>Item 3</MenuItem>
 							</DemoMenu>
-							<DemoMenu name="Menu with icons and deviders">
+							<DemoMenu name="Menu with Icons and Dividers">
 								<MenuItem
 									icon={<MdNotifications/>}
 								>
@@ -190,6 +190,23 @@ function App() {
 								<MenuDivider/>
 								<MenuItem>Item 4</MenuItem>
 								<MenuItem>Item 5</MenuItem>
+							</DemoMenu>
+							<DemoMenu name="Checkbox Menu">
+								<MenuItem checkbox defaultChecked>Item 1</MenuItem>
+								<MenuItem checkbox>Item 2</MenuItem>
+								<MenuItem checkbox>Item 3</MenuItem>
+							</DemoMenu>
+							<DemoMenu name="Menu without Unfold Animation" animation={false}>
+								<MenuItem>Item 1</MenuItem>
+								<MenuItem>Item 2</MenuItem>
+								<MenuItem>Item 3</MenuItem>
+							</DemoMenu>
+							<DemoMenu name="Long Menu">
+								{
+									Array.from(Array(20).keys()).map((i) => (
+										<MenuItem key={i}>Item {i}</MenuItem>
+									))
+								}
 							</DemoMenu>
 						</div>
 					</Section>
@@ -307,10 +324,11 @@ function DemoMenu(props) {
 			</Button>
 			<Menu
 				ref={menuRef}
-				className="song-filter-menu"
+				className="demo-menu"
 				anchorElement={openBtnRef?.current}
 				anchorPosition="center top"
 				open={open}
+				animation={props.animation}
 			>
 				{ props.children }
 			</Menu>

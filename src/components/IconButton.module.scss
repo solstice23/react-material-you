@@ -10,6 +10,8 @@
 	cursor: pointer;
 	overflow: hidden;
 	transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+	border: none;
+	background-color: transparent;
 	
 
 	&::before {
@@ -25,6 +27,9 @@
 		opacity: 0.08;
 	}
 	&:active::before {
+		opacity: 0.12;
+	}
+	&:focus-visible::before {
 		opacity: 0.12;
 	}
 

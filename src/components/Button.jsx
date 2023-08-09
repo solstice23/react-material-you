@@ -11,7 +11,7 @@ const Button = forwardRef(function Button(props, ref) {
 	useRipple(ref);
 
 	return (
-		<div ref={ref} role="button"
+		<button ref={ref} role="button" tabIndex={props.disabled ? -1 : (props.tabIndex ?? 0)}
 			className={classNames(
 				'button',
 				css.Button,
@@ -38,7 +38,7 @@ const Button = forwardRef(function Button(props, ref) {
 				</div>
 			}
 			{props.children}
-		</div>
+		</button>
 	)
 });
 
