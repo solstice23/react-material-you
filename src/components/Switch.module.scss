@@ -1,0 +1,97 @@
+.switch {
+	display: inline-block;
+	width: 52px;
+	height: 32px;
+	border-radius: 1000px;
+	background-color: var(--md-sys-color-surface-container-highest);
+	position: relative;
+	border: 2px solid var(--md-sys-color-outline);
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+	&.checked {
+		background-color: var(--md-sys-color-primary);
+		border-color: var(--md-sys-color-primary);
+	}
+
+	.handle {
+		position: absolute;
+		top: 14px;
+		left: 14px;
+		width: 16px;
+		height: 16px;
+		transform: translate(-50%, -50%) scale(var(--scale, 1));
+		border-radius: 1000px;
+		background-color: var(--md-sys-color-outline);
+		--ripple-color: var(--md-sys-color-on-surface);
+		transition: transform .2s ease-in-out, background-color .2s ease-in-out;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 48px;
+			height: 48px;
+			border-radius: 1000px;
+			transform: translate(-50%, -50%) scale(var(--scale, 1));
+			background-color: var(--md-sys-color-on-surface);
+			opacity: 0;
+			transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+		}
+
+		&.checked {
+			background-color: var(--md-sys-color-surface-container-highest);
+			--ripple-color: var(--md-sys-color-primary);
+			&::before {
+				background-color: var(--md-sys-color-primary);
+			}
+		}
+
+		&:hover {
+			--scale: 1.166667;
+			&::before {
+				opacity: 0.06;
+				--scale: 0.857143;
+			}
+		}
+	
+		:global {
+			.ripple-wrap {
+				--ripple-blur: 0;
+				left: 0 !important;
+				right: 0 !important;
+				top: 0 !important;
+				bottom: 0 !important;
+				width: unset !important;
+				height: unset !important;
+				> span {
+					left: 50% !important;
+					top: 50% !important;
+					max-height: 40px !important;
+					max-width: 40px !important;
+				}
+			}
+		}
+
+
+	}
+
+	&.disabled {
+		cursor: default;
+		pointer-events: none;
+		background-color: rgba(var(--md-sys-color-surface-container-highest-rgb), 0.25);
+		border-color: rgba(var(--md-sys-color-surface-container-highest-rgb), 0.25);
+		.handle {
+			background-color: var(--md-sys-color-on-surface);
+			opacity: .38;
+		}
+		&.checked {
+			background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.25);
+			border-color: transparent;
+			.handle {
+				background-color: var(--md-sys-color-surface);
+			}
+		}
+	}
+}

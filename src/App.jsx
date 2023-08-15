@@ -4,6 +4,7 @@ import './style/global.scss'
 import Card from './components/Card.jsx';
 import Checkbox from './components/Checkbox.jsx';
 import Radio from './components/Radio.jsx';
+import Switch from './components/Switch.jsx';
 import TextField from './components/TextField.jsx';
 import TopAppBar from './components/TopAppBar.jsx';
 import IconButton from './components/IconButton.jsx'
@@ -64,6 +65,24 @@ function App() {
 							<Radio label="Foo" value="foo" disabled/>
 							<Radio label="Bar" value="bar" disabled/>
 						</RadioGroup>
+					</Section>
+					<Section name="Switch">
+						<div className="row">
+							<Switch defaultChecked={false} />
+							Off
+						</div>
+						<div className="row">
+							<Switch defaultChecked={true} />
+							On
+						</div>
+						<div className="row">
+							<Switch defaultChecked={false} disabled/>
+							Off Disabled
+						</div>
+						<div className="row">
+							<Switch defaultChecked={true} disabled/>
+							On Disabled
+						</div>
 					</Section>
 					<Section name="Text Field">
 						Normal<br/>
