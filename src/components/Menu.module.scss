@@ -12,6 +12,12 @@
 	max-height: calc(50vh - 32px);
 	overflow-y: auto;
 
+	&.fullWidth {
+		width: var(--anchor-element-width);
+		max-width: unset;
+		min-width: unset;
+	}
+
 	&.hide {
 		pointer-events: none;
 		opacity: 0;

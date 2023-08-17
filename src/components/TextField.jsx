@@ -62,7 +62,7 @@ const TextField = forwardRef(function TextField(props, ref) {
 	)
 });
 
-function TextFieldLabel({label}) {
+export function TextFieldLabel({label}) {
 	const labelTestRef = useRef(null);
 	const [labelWidth, setLabelWidth] = useState(0);
 
@@ -76,7 +76,7 @@ function TextFieldLabel({label}) {
 		});
 		resizeObserver.observe(labelTestRef.current);
 		return () => resizeObserver.disconnect();	
-	});
+	}, []);
 
 	return (
 		<>

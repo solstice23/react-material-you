@@ -6,6 +6,7 @@ import Checkbox from './components/Checkbox.jsx';
 import Radio from './components/Radio.jsx';
 import Switch from './components/Switch.jsx';
 import TextField from './components/TextField.jsx';
+import Select from './components/Select.jsx';
 import TopAppBar from './components/TopAppBar.jsx';
 import IconButton from './components/IconButton.jsx'
 import FAB from './components/FAB.jsx';
@@ -113,6 +114,175 @@ function App() {
 						<TextField type="outlined" label="Outlined" disabled/>
 						{" "}
 						<TextField type="filled" label="Filled" disabled/>
+					</Section>
+					<Section name="Select">
+						Normal<br/>
+						<Select
+							label="Outlined"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						{" "}
+						<Select
+							label="Filled"
+							type="filled"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						<br/>Has default value<br/>
+						{" "}
+						<Select
+							label="Outlined"
+							defaultValue="cat"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						{" "}
+						<Select
+							label="Filled"
+							defaultValue="cat"
+							type="filled"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						<br/>With placeholder<br/>
+						{" "}
+						<Select
+							label="Outlined"
+							placeholder="Placeholder"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						{" "}
+						<Select
+							label="Filled"
+							type="filled"
+							placeholder="Placeholder"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						<br/>With leading icon<br/>
+						{" "}
+						<Select
+							label="Outlined"
+							placeholder="Placeholder"
+							leadingIcon={<MdSearch/>}
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						{" "}
+						<Select
+							label="Filled"
+							type="filled"
+							placeholder="Placeholder"
+							leadingIcon={<MdSearch/>}
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						<br/>No label<br/>
+						{" "}
+						<Select
+							placeholder="Placeholder"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						{" "}
+						<Select
+							type="filled"
+							placeholder="Placeholder"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						<br/>Disabled<br/>
+						{" "}
+						<Select
+							label="Outlined"
+							disabled
+							placeholder="Placeholder"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
+						{" "}
+						<Select
+							label="Filled"
+							type="filled"
+							disabled
+							placeholder="Placeholder"
+							options={[
+								{label: "Dog", value: "dog"},
+								{label: "Cat", value: "cat"},
+								{label: "Hamster", value: "hamster"},
+								{label: "Parrot", value: "parrot"},
+								{label: "Spider", value: "spider"},
+								{label: "Goldfish", value: "goldfish"},
+							]}
+						/>
 					</Section>
 					<Section name="Card" className="card-section">
 						<DemoCard type="outlined" title="Outlined" />

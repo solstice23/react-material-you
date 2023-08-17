@@ -66,14 +66,14 @@
 				transition: transform 0.3s ease;
 			}
 		}
-		.input:placeholder-shown:not(:focus) {
+		.input:placeholder-shown:not(:focus):not(.active) {
 			caret-color: transparent;
 			& + .label{
 				font-size: inherit;
 				line-height: 48px;
 			}
 		}
-		.input:focus {
+		.input:focus, .input.active {
 			&::placeholder {
 				opacity: 1;
 			}
@@ -197,7 +197,7 @@
 			}
 
 		}
-		.input:placeholder-shown:not(:focus) {
+		.input:placeholder-shown:not(:focus):not(.active) {
 			caret-color: transparent;
 			& + .label{
 				font-size: inherit;
@@ -207,7 +207,7 @@
 				}
 			}
 		}
-		.input:focus {
+		.input:focus, .input.active {
 			border-color: var(--md-sys-color-primary);
 			border-top-color: transparent;
 			box-shadow: inset 1px 0 var(--md-sys-color-primary), inset -1px 0 var(--md-sys-color-primary), inset 0 -1px var(--md-sys-color-primary);
@@ -253,7 +253,7 @@
 			.label span{
 				transition: margin-left 0.2s ease;
 			}
-			.input:placeholder-shown:not(:focus) {
+			.input:placeholder-shown:not(:focus):not(.active) {
 				caret-color: transparent;
 				& + .label span{
 					margin-left: 38px;

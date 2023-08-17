@@ -31,7 +31,11 @@ const MenuItem = forwardRef(function MenuItem(props, ref) {
 				css.menuItem,
 				themeClass,
 				'menu-item',
-				props.className
+				props.className,
+				{
+					[css.disabled]: props.disabled,
+					[css.selected]: props.selected,
+				}
 			)}
 			onClick={onClick}
 		>
