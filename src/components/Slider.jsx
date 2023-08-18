@@ -57,7 +57,6 @@ const Slider = forwardRef(function Slider(props, ref){
 			const newPercent = getPercentByEvent(e);
 			setPercent(newPercent);
 			props.onInput?.(newPercent);
-			console.log('asdasdasd');
 			if (new Date() - clickOnTrackTime.current > 75) {
 				setMorphing(false);
 			}
