@@ -8,11 +8,24 @@ const Slider = forwardRef(function Slider(props, ref){
 	
 	const themeClass = useScopedThemeClass();
 
-	const [percent, setPercent] = useState(props.defaultPercent ?? 0);
+	const [percent, setPercent] = useState(props.percent !== undefined ? props.percent : props.defaultPercent ?? 0);
 
 	const isDragging = useRef(false);
 	const handleRef = useRef(null);
 	const controlTrackRef = useRef(null);
+	const clickOnTrackTime = useRef(0);
+
+	const [morphing, _setMorphing] = useState(false);
+	const morphingTimeout = useRef(null);
+	const setMorphing = (value) => {
+		if (value) {
+			clearTimeout(morphingTimeout.current);
+			morphingTimeout.current = setTimeout(() => {
+				_setMorphing(false);
+			}, 300);
+		}
+		_setMorphing(value);
+	}
 
 	let currentPercent = /*isDragging.current ? 
 		percent:*/
@@ -44,6 +57,10 @@ const Slider = forwardRef(function Slider(props, ref){
 			const newPercent = getPercentByEvent(e);
 			setPercent(newPercent);
 			props.onInput?.(newPercent);
+			console.log('asdasdasd');
+			if (new Date() - clickOnTrackTime.current > 75) {
+				setMorphing(false);
+			}
 		}
 	}
 	const handleMouseUp = (e) => {
@@ -66,6 +83,8 @@ const Slider = forwardRef(function Slider(props, ref){
 		const newPercent = getPercentByEvent(e);
 		setPercent(newPercent);
 		props.onChange?.(newPercent);
+		setMorphing(true);
+		clickOnTrackTime.current = Date.now();
 	}
 
 	useEffect(() => {
@@ -92,6 +111,8 @@ const Slider = forwardRef(function Slider(props, ref){
 					[css.wave]: props.wave,
 					[css.paused]: props.paused,
 					[css.disabled]: props.disabled,
+
+					[css.morphing]: morphing,
 				}
 			)}
 			style={{

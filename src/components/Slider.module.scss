@@ -91,7 +91,19 @@
 				transform: scale(1);
 			}
 		}
-	}	
+	}
+
+	&.morphing {
+		.played {
+			transition: right 0.2s ease-out;
+		}
+		.unplayed {
+			transition: left 0.2s ease-out;
+		}
+		.handleContainer {
+			transition: transform 0.2s ease-out;
+		}
+	}
 }
 
 .sinWave {
