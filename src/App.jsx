@@ -16,13 +16,15 @@ import Slider from './components/Slider.jsx';
 import RadioGroup from './components/RadioGroup.jsx';
 import Menu from './components/Menu.jsx';
 import MenuItem, {MenuDivider} from './components/MenuItem.jsx';
-import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch } from 'react-icons/md';
+import Dialog from './components/Dialog.jsx';
+import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch, MdOutlineEmail } from 'react-icons/md';
 import classNames from 'classnames';
 
 import ThemeProvider from './theme/ThemeProvider.jsx';
 
 function App() {
 	const [wavePaused, setWavePaused] = useState(false);
+	const [dialogOpen, setDialogOpen] = useState(false);
 
 	return (
 		<>
@@ -443,6 +445,31 @@ function App() {
 						<Slider defaultPercent={40} wave paused={wavePaused}/>
 						<Slider defaultPercent={60} wave paused={wavePaused} disabled/>
 						<Checkbox label="Pause wave" defaultChecked={false} onChange={setWavePaused}/>
+					</Section>
+					<Section name="Dialog">
+						<Button onClick={() => setDialogOpen(true)}>Open Dialog</Button>
+						<Dialog
+							title="Dialog Title"
+							positiveButton="OK"
+							negativeButton="Cancel"
+							neutralButton="Neutral"
+							onPositiveButtonClick={() => setDialogOpen(false)}
+							onNegativeButtonClick={() => setDialogOpen(false)}
+							//onNeutralButtonClick={() => setDialogOpen(false)}
+							onClose={() => setDialogOpen(false)}
+							closeOnClickOutside={true}
+							open={dialogOpen}
+							icon={<MdOutlineEmail/>}
+						>
+							Dialog Content
+							Dialog Content
+							Dialog Content
+							Dialog Content
+							Dialog Content
+							Dialog Content
+							Dialog Content
+							Dialog Content
+						</Dialog>
 					</Section>
 				</div>
 			</ThemeProvider>
