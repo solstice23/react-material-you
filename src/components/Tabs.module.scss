@@ -1,0 +1,37 @@
+.tabs {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	.tabBar {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		height: 48px;
+		&.withIcon {
+			height: 64px;
+		}
+		.tab {
+			flex: 1;
+			height: 100%;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+	}
+	.tabContents {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		transition: height .25s ease;
+		.tabContent {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			left: calc((var(--tab-id, 0) - var(--current-tab, 0)) * 100%);
+			transition: left .25s ease;
+		}
+	}
+}

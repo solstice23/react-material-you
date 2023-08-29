@@ -16,6 +16,8 @@ import Slider from './components/Slider.jsx';
 import RadioGroup from './components/RadioGroup.jsx';
 import Menu from './components/Menu.jsx';
 import MenuItem, {MenuDivider} from './components/MenuItem.jsx';
+import Tabs from './components/Tabs.jsx';
+import Tab from './components/Tab.jsx';
 import Dialog from './components/Dialog.jsx';
 import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch, MdOutlineEmail } from 'react-icons/md';
 import classNames from 'classnames';
@@ -470,6 +472,19 @@ function App() {
 							Dialog Content
 							Dialog Content
 						</Dialog>
+					</Section>
+					<Section name="Tabs">
+						<Tabs type="primary">
+							<Tab label="Tab 1">
+								Tab 1 Content
+							</Tab>
+							<Tab label="Tab 2">
+								Tab 2 Content
+							</Tab>
+							<Tab label="Tab 3">
+								Tab 3 Content
+							</Tab>
+						</Tabs>
 					</Section>
 				</div>
 			</ThemeProvider>
