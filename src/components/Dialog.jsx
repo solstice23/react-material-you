@@ -16,6 +16,20 @@ const Dialog = forwardRef(function Dialog(props, ref) {
 
 	const hasButton = props.positiveButton || props.negativeButton || props.neutralButton;
 
+	useEffect(() => {
+		if ((props?.closeOnEsc ?? true) && open) {
+			const listener = (e) => {
+				if (e.key === 'Escape') {
+					props.onClose?.();
+				}
+			};
+			document.addEventListener('keydown', listener);
+			return () => {
+				document.removeEventListener('keydown', listener);
+			}
+		}
+	}, [props.closeOnEsc, props.open]);
+
 	return (
 		createPortal(
 			<div ref={ref}
