@@ -19,7 +19,7 @@ import MenuItem, {MenuDivider} from './components/MenuItem.jsx';
 import Tabs from './components/Tabs.jsx';
 import Tab from './components/Tab.jsx';
 import Dialog from './components/Dialog.jsx';
-import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch, MdOutlineEmail } from 'react-icons/md';
+import { MdArrowBack, MdNotifications, MdAttachFile, MdAdd, MdEdit, MdOutlineCircle, MdOutlineSquare, MdOutlineChangeHistory, MdSearch, MdOutlineEmail, MdFlight, MdLuggage, MdExplore } from 'react-icons/md';
 import classNames from 'classnames';
 
 import ThemeProvider from './theme/ThemeProvider.jsx';
@@ -474,15 +474,82 @@ function App() {
 						</Dialog>
 					</Section>
 					<Section name="Tabs">
-						<Tabs type="primary">
-							<Tab label="Tab 1">
+						Primary
+						<Tabs type="primary" className="tabs-demo-1">
+							<Tab label="Flights">
 								Tab 1 Content
 							</Tab>
-							<Tab label="Tab 2">
-								Tab 2 Content
+							<Tab label="Trips">
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
 							</Tab>
-							<Tab label="Tab 3">
-								Tab 3 Content
+							<Tab label="Explore">
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+							</Tab>
+						</Tabs>
+						Secondary
+						<Tabs type="secondary" className="tabs-demo-2">
+							<Tab label="Flights">
+								Tab 1 Content
+							</Tab>
+							<Tab label="Trips">
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+							</Tab>
+							<Tab label="Explore">
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+							</Tab>
+						</Tabs>
+						With icon
+						<Tabs type="primary" className="tabs-demo-3">
+							<Tab label="Flights" icon={<MdFlight/>}>
+								Tab 1 Content
+							</Tab>
+							<Tab label="Trips" icon={<MdLuggage/>}>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+								Tab 2 Content<br/>
+							</Tab>
+							<Tab label="Explore" icon={<MdExplore/>}>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
+								Tab 3 Content<br/>
 							</Tab>
 						</Tabs>
 					</Section>
