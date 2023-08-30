@@ -17,6 +17,7 @@ const Menu = forwardRef(function Menu(props, ref) {
 			fixed={props.fixed}
 			noClick={!(props.open ?? true)}
 			ref={ref}
+			zIndex={props.zIndex ?? 1000}
 		>
 			<div 
 				className={classNames(

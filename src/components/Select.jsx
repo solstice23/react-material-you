@@ -27,6 +27,7 @@ const Select = forwardRef(function Select(props, ref) {
 	const placeholder = props.placeholder?.length ? props.placeholder : ' ';
 
 	const [active, setActive] = useState(false);
+	const [minZIndex, setMinZIndex] = useState(10);
 
 	const textFieldRef = useRef(null);
 	const menuRef = useRef(null);
@@ -69,6 +70,18 @@ const Select = forwardRef(function Select(props, ref) {
 			)}
 			ref={textFieldRef}
 			onClick={() => {
+				if (!active) {
+					let min = 1000000000;
+					let dom = textFieldRef.current;
+					while (dom) {
+						const zIndex = parseInt(getComputedStyle(dom).zIndex);
+						if (zIndex && zIndex < min) {
+							min = zIndex;
+						}
+						dom = dom.parentElement;
+					}
+					setMinZIndex(min + 1);
+				}
 				setActive(!active);
 			}}
 		>
@@ -120,6 +133,7 @@ const Select = forwardRef(function Select(props, ref) {
 				open={active}
 				animation={true}
 				fullWidth={true}
+				zIndex={Math.max(props.zIndex ?? 10, minZIndex)}
 			>
 				{
 					props.options.map((option, index) => {

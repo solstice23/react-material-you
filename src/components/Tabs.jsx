@@ -20,7 +20,7 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 	const tabsRef = useRef(null);
 	const tabContentsRef = useRef(null);
 
-	useLayoutEffect(() => {
+	const calcHeight = () => {
 		if (!(props?.dynamicHeight ?? true)) {
 			tabContentsRef.current.style.height = '';
 			return;
@@ -29,6 +29,16 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 		const currentTabContentDom = tabContentsRef.current.children[currentTab];
 		const height = currentTabContentDom.getBoundingClientRect().height;
 		tabContentsRef.current.style.height = height + 'px';
+	};
+	useLayoutEffect(() => {
+		calcHeight();
+		window.addEventListener('resize', calcHeight);
+		const resizeObserver = new ResizeObserver(calcHeight);
+		tabContentsRef.current?.children[currentTab] && resizeObserver.observe(tabContentsRef.current.children[currentTab]);
+		return () => {
+			window.removeEventListener('resize', calcHeight);
+			resizeObserver.disconnect();
+		}
 	}, [currentTab, props.dynamicHeight]);
 
 	useEffect(() => {
@@ -63,7 +73,7 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 			}}
 			ref={ref}
 		>
-			<div className={css.tabBar} ref={tabsRef}>
+		<div className={classNames(css.tabBar, 'tab-bar')} ref={tabsRef}>
 				{
 					props.children.map((child, i) => {
 						return (

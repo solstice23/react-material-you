@@ -51,8 +51,16 @@ const Dialog = forwardRef(function Dialog(props, ref) {
 				style={{
 					'zIndex': props.zIndex ?? 1000,
 				}}
-			>
-				<div className={css.dialog} ref={props?.innerRef}>
+			>				
+				<div
+					className={
+						classNames(
+							css.dialog,
+							'dialog'
+						)
+					}
+					ref={props?.innerRef}
+				>
 					{
 						props.icon && <div className={css.icon}>
 							{props.icon}
