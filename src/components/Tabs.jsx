@@ -21,7 +21,10 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 	const tabContentsRef = useRef(null);
 
 	useLayoutEffect(() => {
-		if (!(props?.dynamicHeight ?? true)) return;
+		if (!(props?.dynamicHeight ?? true)) {
+			tabContentsRef.current.style.height = '';
+			return;
+		}
 		if (tabContentsRef.current === null) return;
 		const currentTabContentDom = tabContentsRef.current.children[currentTab];
 		const height = currentTabContentDom.getBoundingClientRect().height;
@@ -49,7 +52,8 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 						[css.primary]: (props.type ?? 'primary') === 'primary',
 						[css.secondary]: (props.type ?? 'primary') === 'secondary',
 
-						[css.withIcon]: props.children.some(child => child.props.icon)
+						[css.withIcon]: props.children.some(child => child.props.icon),
+						[css.dynamicHeight]: props.dynamicHeight ?? true,
 					}
 				)
 			}

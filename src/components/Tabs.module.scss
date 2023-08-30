@@ -83,7 +83,6 @@
 		position: relative;
 		overflow: hidden;
 		width: 100%;
-		transition: height .25s ease;
 		.tabContent {
 			width: 100%;
 			position: absolute;
@@ -107,6 +106,21 @@
 	&.withIcon {
 		.tabBar{
 			height: 64px;
+		}
+	}
+
+	&.dynamicHeight {
+		.tabContents {
+			transition: height .25s ease;
+		}
+	}
+	&:not(.dynamicHeight) {
+		.tabContents {
+			flex: 1;
+			.tabContent {
+				height: 100%;
+				overflow-y: auto;
+			}
 		}
 	}
 }

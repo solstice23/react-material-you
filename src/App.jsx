@@ -552,6 +552,30 @@ function App() {
 								Tab 3 Content<br/>
 							</Tab>
 						</Tabs>
+						Fixed Height
+						<Tabs className="tabs-demo-4" dynamicHeight={false}>
+							<Tab label="Flights">
+								{
+									Array.from(Array(30).keys()).map((i) => (
+										<div key={i}>Tab 1 Content {i}</div>
+									))
+								}
+							</Tab>
+							<Tab label="Trips">
+								{
+									Array.from(Array(30).keys()).map((i) => (
+										<div key={i}>Tab 2 Content {i}</div>
+									))
+								}
+							</Tab>
+							<Tab label="Explore">
+								{
+									Array.from(Array(30).keys()).map((i) => (
+										<div key={i}>Tab 3 Content {i}</div>
+									))
+								}
+							</Tab>
+						</Tabs>
 					</Section>
 				</div>
 			</ThemeProvider>
