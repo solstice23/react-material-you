@@ -90,6 +90,15 @@
 			width: 100%;
 			left: calc((var(--tab-id, 0) - var(--current-tab, 0)) * 100%);
 			transition: left .25s ease;
+
+			&::-webkit-scrollbar {
+				width: 6px;
+				height: 8px;
+				background-color: transparent;
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: var(--md-sys-color-surface-variant);
+			}
 		}
 	}
 
