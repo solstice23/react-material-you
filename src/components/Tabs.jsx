@@ -44,11 +44,9 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 	useEffect(() => {
 		if (!tabsRef.current) return;
 		const currentTabDom = tabsRef.current.children[currentTab];
-		console.log(currentTabDom);
 		const innerDom = currentTabDom.querySelector(`.${css.tabInner}`);
 		const width = innerDom.getBoundingClientRect().width;
 		ref.current.style.setProperty('--current-tab-inner-width', width + 'px');
-		console.log(width);		
 	},[currentTab, props.children]);
 
 	return (
@@ -56,6 +54,7 @@ const Tabs = forwardRef(function Tabs(props, ref) {
 			className={
 				classNames(
 					css.tabs,
+					'tabs',
 					themeClass,
 					props.className,
 					{

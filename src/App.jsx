@@ -28,9 +28,12 @@ function App() {
 	const [wavePaused, setWavePaused] = useState(false);
 	const [dialogOpen, setDialogOpen] = useState(false);
 
+	const [themeColor, setThemeColor] = useState("#7ab191");
+	const [themeMode, setThemeMode] = useState("auto");
+
 	return (
 		<>
-			<ThemeProvider themeColor="#7ab191" mode="auto" customColors={[
+			<ThemeProvider themeColor={themeColor} mode={themeMode} customColors={[
 				{
 					name: "custom-1",
 					value: "#ff0000",
@@ -52,6 +55,26 @@ function App() {
 					Top App Bar
 				</TopAppBar>
 				<div className='content'>
+					<Section name="Colour">
+						<div>Current theme colour: {themeColor}</div>
+						<div>Current light/dark mode: {themeMode}</div>
+						<div className="row">
+							<Button
+								type="filled"
+								onClick={() => {
+									const randomColor = `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`;
+									console.log("Random colour:", randomColor);
+									setThemeColor(randomColor);
+								}
+							}>Random a theme colour</Button>
+							<Button
+								type="filled"
+								onClick={() => {
+									setThemeMode(themeMode === "auto" ? "light" : themeMode === "light" ? "dark" : "auto");
+								}
+							}>Next theme mode ({themeMode === "auto" ? "light" : themeMode === "light" ? "dark" : "auto"})</Button>
+						</div>
+					</Section>
 					<Section name="Checkbox">
 						<Checkbox label="Unchecked" defaultChecked={false} />
 						<Checkbox label="Checked" defaultChecked={true} />
