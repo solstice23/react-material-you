@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-const useRefState = (initialState) => {
+type RefState<T> = [T, React.MutableRefObject<T>, (data: T) => void];
+function useRefState<T>(initialState: T): RefState<T> {
 	let [state, _setState] = useState(initialState);
 	const stateRef = useRef(state);
-	const setState = (data) => {
+	const setState = (data: T) => {
 		stateRef.current = data;
 		_setState(data);
 	};

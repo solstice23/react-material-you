@@ -66,7 +66,7 @@ function App() {
 									console.log("Random colour:", randomColor);
 									setThemeColor(randomColor);
 								}
-							}>Random a theme colour</Button>
+							}>Random theme colour</Button>
 							<Button
 								type="filled"
 								onClick={() => {
